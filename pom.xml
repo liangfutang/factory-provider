@@ -17,9 +17,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.zjut.dubbo.provider</groupId>
-    <artifactId>parent</artifactId>
+    <artifactId>dubboprovider</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>parent</name>
+    <name>dubboprovider</name>
     <packaging>pom</packaging>
     <description>Parent project for Spring Boot</description>
 
