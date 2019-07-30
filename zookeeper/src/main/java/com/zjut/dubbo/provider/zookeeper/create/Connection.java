@@ -2,14 +2,17 @@ package com.zjut.dubbo.provider.zookeeper.create;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import lombok.Data;
-import org.apache.zookeeper.*;
+import org.apache.zookeeper.CreateMode;
+import org.apache.zookeeper.KeeperException;
+import org.apache.zookeeper.WatchedEvent;
+import org.apache.zookeeper.ZooKeeper;
 
 import java.util.concurrent.*;
 
 import static org.apache.zookeeper.ZooDefs.Ids.OPEN_ACL_UNSAFE;
 
 @Data
-public class Connection implements Watcher {
+public class Connection {
 
     private ZooKeeper zk;
     private static CountDownLatch cdl = new CountDownLatch(1);
@@ -37,16 +40,16 @@ public class Connection implements Watcher {
         Future<Object> submit = executor.submit(new Callable<Object>() {
             @Override
             public Object call() throws Exception {
-                zk = new ZooKeeper(connectString, sessionTimeOut, new Connection(connectString), canBeReadOnly);
+                zk = new ZooKeeper(connectString, sessionTimeOut, new ZookeeperWatcher(), canBeReadOnly);
                 cdl.await();
                 return "success";
             }
         });
-        try {
-            Object o = submit.get();
-        } catch (Exception e) {
-            System.out.println("连接出错:" + e);
-        }
+//        try {
+//            Object o = submit.get();
+//        } catch (Exception e) {
+//            System.out.println("连接出错:" + e);
+//        }
         if (!executor.isShutdown()) {
             executor.shutdown();
         }
@@ -63,6 +66,7 @@ public class Connection implements Watcher {
                 System.out.println("关闭失败");
             }
         }
+        // 关闭线程池,避免资源浪费
         if (!executor.isShutdown()) {
             executor.shutdown();
         }
@@ -92,7 +96,7 @@ public class Connection implements Watcher {
     public String getDate(String path) {
         String result = null;
         try {
-            byte[] data = zk.getData(path, this, null);
+            byte[] data = zk.getData(path, new ZookeeperWatcher(), null);
             result = new String(data);
             System.out.println("根据结点查询到的值为:" + result);
         } catch (KeeperException e) {
@@ -101,11 +105,6 @@ public class Connection implements Watcher {
             e.printStackTrace();
         }
         return result;
-    }
-
-    @Override
-    public void process(WatchedEvent watchedEvent) {
-        System.out.println("监听的消息:" + watchedEvent);
     }
 
     public static void main(String[] args) throws InterruptedException {
