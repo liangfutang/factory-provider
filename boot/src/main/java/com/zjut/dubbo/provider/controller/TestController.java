@@ -1,6 +1,7 @@
 package com.zjut.dubbo.provider.controller;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import com.zjut.dubbo.provider.common.utils.ThreadMdcUtil;
 import com.zjut.dubbo.provider.response.RestResponse;
 import com.zjut.dubbo.provider.service.TestService;
 import org.slf4j.Logger;
@@ -21,7 +22,7 @@ public class TestController {
 
     private static final Logger logger = LoggerFactory.getLogger(TestController.class);
 
-    private ThreadPoolExecutor threadPool = new ThreadPoolExecutor(10, 30, 0,TimeUnit.SECONDS, new LinkedBlockingQueue<>(), new ThreadFactoryBuilder().setNameFormat("测试线程--%d").build());
+    private ThreadPoolExecutor threadPool = new ThreadMdcUtil.ThreadPoolExecutorWrap(10, 30, 0,TimeUnit.SECONDS, new LinkedBlockingQueue<>(), new ThreadFactoryBuilder().setNameFormat("测试线程--%d").build());
     private CountDownLatch countDownLatch = new CountDownLatch(10);
 
     @Autowired
