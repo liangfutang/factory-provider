@@ -69,7 +69,22 @@ public class ThreadMdcUtil {
             super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory, handler);
         }
 
+        @Override
+        public void execute(Runnable task) {
+            super.execute(ThreadMdcUtil.wrap(task, MDC.getCopyOfContextMap()));
+        }
+
+        @Override
+        public Future<?> submit(Runnable task) {
+            return super.submit(ThreadMdcUtil.wrap(task, MDC.getCopyOfContextMap()));
+        }
+
+        @Override
+        public <T> Future<T> submit(Runnable task, T result) {
+            return super.submit(ThreadMdcUtil.wrap(task, MDC.getCopyOfContextMap()), result);
+        }
     }
+
 
     private static String getTraceId() {
         return UUID.randomUUID().toString();
