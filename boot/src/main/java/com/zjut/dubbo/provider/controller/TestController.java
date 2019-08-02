@@ -1,8 +1,8 @@
 package com.zjut.dubbo.provider.controller;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import com.zjut.dubbo.provider.common.utils.ThreadMdcUtil;
 import com.zjut.dubbo.provider.common.response.RestResponse;
+import com.zjut.dubbo.provider.common.utils.ThreadMdcUtil;
 import com.zjut.dubbo.provider.service.TestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,19 +36,21 @@ public class TestController {
         return new RestResponse(testService.getTest());
     }
 
+    private static int num = 0;
     @GetMapping("/testThreadPool")
     public RestResponse testThreadPool() {
-//        CountDownLatch countDownLatch = new CountDownLatch(10);
-        logger.info("线程池外面");
+        logger.info("线程池外面,第{}次被调用:", num);
         threadPool.submit(() -> {
             countDownLatch.countDown();
+            Integer integer = new Integer(num);
             try {
                 countDownLatch.await();
             } catch (InterruptedException e) {
                 logger.error("线程等待异常:" + e);
             }
-            logger.info("线程池内部，当前线程:{},执行", Thread.currentThread().getName());
+            logger.info("线程池内部，当前线程:{},执行。第{}次被调用", Thread.currentThread().getName(), integer);
         });
+        num++;
         return new RestResponse("success");
     }
 }
