@@ -16,5 +16,4 @@ public class FilterConfig {
         registration.setOrder(1);
         return registration;
     }
-
 }
