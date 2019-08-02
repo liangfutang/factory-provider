@@ -11,5 +11,6 @@ public class TraceIdFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         MDC.put("traceId", UUID.randomUUID().toString());
         filterChain.doFilter(servletRequest, servletResponse);
+        MDC.clear();
     }
 }

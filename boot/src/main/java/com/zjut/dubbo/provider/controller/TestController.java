@@ -2,7 +2,7 @@ package com.zjut.dubbo.provider.controller;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.zjut.dubbo.provider.common.utils.ThreadMdcUtil;
-import com.zjut.dubbo.provider.response.RestResponse;
+import com.zjut.dubbo.provider.common.response.RestResponse;
 import com.zjut.dubbo.provider.service.TestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +32,7 @@ public class TestController {
     public RestResponse test() {
         logger.info("日志测试");
         System.out.println("进入到测试方法");
+        int i = 1/0;
         return new RestResponse(testService.getTest());
     }
 
