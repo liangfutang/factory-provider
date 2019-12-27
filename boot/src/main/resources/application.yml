@@ -44,7 +44,7 @@ spring:
     protocol:
       name: dubbo
       port: 20890 #dubbo服务暴露的端口
-    scan: com.zjut.dubbo.provider.service.impl #扫描的包名
+    scan: com.zjut.dubbo.provider.openservice.service.impl #扫描的包名
 #dubbo:
 #  application:
 #    name: springboot-dubbo-provider
