@@ -37,7 +37,7 @@ spring:
 # 暂时先使用该方式，后期还是要整合到starter二方包模块中
   dubbo:
     application:
-      name: springboot-dubbo-demo #应用名
+      name: dubbo-provider #应用名
     registry:
       address: zookeeper://dev.cdh.ecarx.local:2181 #zookeeper地址
       port: 2181 #提供注册的端口

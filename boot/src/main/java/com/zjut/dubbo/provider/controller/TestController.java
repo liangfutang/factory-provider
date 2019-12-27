@@ -4,6 +4,7 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.zjut.dubbo.provider.common.response.RestResponse;
 import com.zjut.dubbo.provider.common.utils.ThreadMdcUtil;
 import com.zjut.dubbo.provider.client.service.TestService;
+import com.zjut.dubbo.provider.openservice.service.impl.TestServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -25,7 +27,7 @@ public class TestController {
     private ThreadPoolExecutor threadPool = new ThreadMdcUtil.ThreadPoolExecutorWrap(10, 30, 0,TimeUnit.SECONDS, new LinkedBlockingQueue<>(), new ThreadFactoryBuilder().setNameFormat("测试线程--%d").build());
     private CountDownLatch countDownLatch = new CountDownLatch(10);
 
-    @Autowired
+    @Resource(type = TestServiceImpl.class)
     private TestService testService;
 
     @RequestMapping("/test")
