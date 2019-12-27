@@ -1,4 +1,4 @@
-package com.zjut.dubbo.provider.entity;
+package com.zjut.dubbo.provider.dataobject;
 
 import lombok.Data;
 
