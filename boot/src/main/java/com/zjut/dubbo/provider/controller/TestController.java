@@ -3,7 +3,7 @@ package com.zjut.dubbo.provider.controller;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.zjut.dubbo.provider.common.response.RestResponse;
 import com.zjut.dubbo.provider.common.utils.ThreadMdcUtil;
-import com.zjut.dubbo.provider.service.TestService;
+import com.zjut.dubbo.provider.client.service.TestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
