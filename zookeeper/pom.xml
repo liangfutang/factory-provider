@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>zookeeper</artifactId>
+    <artifactId>provider-zookeeper</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
