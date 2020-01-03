@@ -2,7 +2,7 @@ mybatis-plus:
   # config-location:
   mapper-locations: classpath*:/mapper/*Mapper.xml
   # 实体扫描，多个package用逗号或者分号分隔
-  type-aliases-package: com.zjut.dubbo.provider.dataobject
+  type-aliases-package: com.zjut.factory.provider.dataobject
   configuration:
     # 驼峰下划线转换
     map-underscore-to-camel-case: true
@@ -44,7 +44,7 @@ spring:
     protocol:
       name: dubbo
       port: 20890 #dubbo服务暴露的端口
-    scan: com.zjut.dubbo.provider.openservice.service.impl #扫描的包名
+    scan: com.zjut.factory.provider.openservice.service.impl #扫描的包名
 #dubbo:
 #  application:
 #    name: springboot-dubbo-provider
