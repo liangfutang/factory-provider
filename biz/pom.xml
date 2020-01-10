@@ -11,5 +11,11 @@
 
     <artifactId>provider-biz</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.zjut.spring.boot</groupId>
+            <artifactId>factory-spring-boot-starter-jdbc</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

@@ -27,7 +27,10 @@
             <groupId>com.zjut.factory.provider</groupId>
             <artifactId>provider-common</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.zjut.factory.provider</groupId>
+            <artifactId>provider-biz</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
