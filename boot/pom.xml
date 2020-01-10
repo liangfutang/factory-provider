@@ -20,10 +20,6 @@
             <artifactId>provider-openservice</artifactId>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.zjut.factory.provider</groupId>
             <artifactId>provider-config</artifactId>
         </dependency>
