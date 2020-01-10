@@ -5,8 +5,10 @@ import com.zjut.factory.provider.common.response.RestResponse;
 import com.zjut.factory.provider.common.utils.ThreadMdcUtil;
 import com.zjut.factory.provider.client.service.TestService;
 import com.zjut.factory.provider.openservice.service.impl.TestServiceImpl;
+import com.zjut.factory.provider.service.RoleBaseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +30,15 @@ public class TestController {
 
     @Resource(type = TestServiceImpl.class)
     private TestService testService;
+
+    @Autowired
+    private RoleBaseService roleBaseService;
+
+    @GetMapping("/roles")
+    public RestResponse getRole() {
+        roleBaseService.getRole();
+        return new RestResponse("success");
+    }
 
     @RequestMapping("/test")
     public RestResponse test() {
