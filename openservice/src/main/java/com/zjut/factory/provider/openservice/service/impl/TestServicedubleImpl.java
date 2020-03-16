@@ -1,8 +1,8 @@
 package com.zjut.factory.provider.openservice.service.impl;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.zjut.factory.provider.client.dto.TestDubboValidationDto;
 import com.zjut.factory.provider.client.service.TestService;
+import org.apache.dubbo.config.annotation.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
