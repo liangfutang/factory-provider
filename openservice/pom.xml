@@ -15,6 +15,10 @@
             <groupId>com.zjut.factory.provider</groupId>
             <artifactId>provider-client</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.zjut.spring.boot</groupId>
+            <artifactId>factory-spring-boot-starter-dubbo</artifactId>
+        </dependency>
     </dependencies>
 
 
