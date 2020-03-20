@@ -18,6 +18,7 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public String testValidation(TestDubboValidationDto testDubboValidation) {
+        logger.info("进来的参数:" + testDubboValidation);
         return "测试校验成功";
     }
 }
