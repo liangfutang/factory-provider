@@ -4,15 +4,15 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.zjut.factory.provider.common.response.RestResponse;
 import com.zjut.factory.provider.common.utils.ThreadMdcUtil;
 import com.zjut.factory.provider.client.service.TestService;
+import com.zjut.factory.provider.dto.Personer;
 import com.zjut.factory.provider.openservice.service.impl.TestServiceImpl;
 import com.zjut.factory.provider.service.RoleBaseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -63,6 +63,17 @@ public class TestController {
             logger.info("线程池内部，当前线程:{},执行。第{}次被调用", Thread.currentThread().getName(), integer);
         });
         num++;
+        return new RestResponse("success");
+    }
+
+    /**
+     * 用来测试aop,PersonerArgChangeAspect的入参能否插入新的参数
+     * @param personer
+     * @return
+     */
+    @PostMapping("/aspect/insert/test")
+    public RestResponse testPutArgAspect(@RequestBody Personer personer) {
+        logger.info("传进来的入参:" + personer);
         return new RestResponse("success");
     }
 }
