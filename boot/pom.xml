@@ -5,12 +5,12 @@
     <parent>
         <artifactId>factory-provider</artifactId>
         <groupId>com.zjut.factory.provider</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <version>${factory-provider.version}</version>
     <artifactId>provider-boot</artifactId>
-    
+
     <dependencies>
         <dependency>
             <groupId>com.zjut.factory.provider</groupId>
