@@ -22,6 +22,8 @@
 
     <properties>
         <factory-provider.version>1.0.0-SNAPSHOT</factory-provider.version>
+        <project-starter.version>1.0.0-SNAPSHOT</project-starter.version>
+        <project-common.version>1.0-SNAPSHOT</project-common.version>
 
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -29,7 +31,6 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
 
-        <project-starter.version>1.0.0-SNAPSHOT</project-starter.version>
         <guava.version>27.0-jre</guava.version>
         <apache.zookeeper.version>3.4.14</apache.zookeeper.version>
         <slf4j-log4j12.version>1.6.1</slf4j-log4j12.version>
@@ -39,7 +40,7 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--自定义starter包 start-->
+            <!--自定义starter或其他相关包 start-->
             <dependency>
                 <groupId>com.zjut.spring.boot</groupId>
                 <artifactId>project-spring-boot-dependencies</artifactId>
@@ -53,7 +54,12 @@
                     </exclusion>
                 </exclusions>
             </dependency>
-            <!--自定义starter包 end-->
+            <dependency>
+                <groupId>com.zjut.common</groupId>
+                <artifactId>project-common</artifactId>
+                <version>${project-common.version}</version>
+            </dependency>
+            <!--自定义starter或其他相关包 end-->
 
             <!--子模块 start-->
             <dependency>
