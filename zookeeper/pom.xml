@@ -8,13 +8,13 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <version>${factory-provider.version}</version>
     <artifactId>provider-zookeeper</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.zjut.spring.boot</groupId>
-            <artifactId>factory-spring-boot-starter-dubbo</artifactId>
+            <artifactId>project-spring-boot-starter-dubbo</artifactId>
         </dependency>
     </dependencies>
 

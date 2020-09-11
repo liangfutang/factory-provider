@@ -27,7 +27,7 @@ public class RoleBaseServiceImpl extends BaseServiceImpl<RoleMapper, SysRoleDo> 
 
     @Override
     public void getRole() {
-        List<SysRoleDo> roles = baseMapper.selectByMap(new HashMap<String, Object>() {{
+        List<SysRoleDo> roles = baseMapper.selectByMap(new HashMap<String, Object>(1) {{
             put("role_id", 1);
         }});
         System.out.println("查询结果:" + roles);
