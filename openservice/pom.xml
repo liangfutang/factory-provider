@@ -17,8 +17,8 @@
             <artifactId>provider-client</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.zjut.spring.boot</groupId>
-            <artifactId>project-spring-boot-starter-dubbo</artifactId>
+            <groupId>com.zjut.factory.provider</groupId>
+            <artifactId>provider-biz</artifactId>
         </dependency>
     </dependencies>
 
